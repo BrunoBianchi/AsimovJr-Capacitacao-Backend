@@ -1,0 +1,19 @@
+meta {
+  name: Sign-In
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:3000/api/v1/auth/sign-in
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name":"Bruno Bianchi",
+    "password":"teste123",
+    "email":"bruno.teste@gmail.com"
+  }
+}
