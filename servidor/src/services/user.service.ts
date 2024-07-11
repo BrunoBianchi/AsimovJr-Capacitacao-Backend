@@ -24,5 +24,16 @@ export class UserService {
         }
 
     }
+
+    public async getUserByEmailAndPassword(credentials: { email: string, password: string }) {
+        try {
+            const user: User = await this.findUserByEmail(credentials.email) as User;
+            if (!await bcrypt.compare(credentials.password, user.password)) throw "Email or Password Incorrect!"
+            return user;
+        } catch (err) {
+            throw err;
+        }
+    }
+
 }
 
